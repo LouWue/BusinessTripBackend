@@ -43,10 +43,11 @@ CREATE TABLE IF NOT EXISTS businessTrip_db.role (
 CREATE TABLE IF NOT EXISTS businessTrip_db.trip (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
+    budget FLOAT NOT NULL,
     details VARCHAR(4069) NOT NULL,
     destination VARCHAR(255) NOT NULL,
-    startAt TIMESTAMP NOT NULL,
-    endAt TIMESTAMP NOT NULL,
+    start_at TIMESTAMP NOT NULL,
+    end_at TIMESTAMP NOT NULL,
     PRIMARY KEY (id),
     UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE
     ) ENGINE = InnoDB;

@@ -1,12 +1,16 @@
 package org.example.businesstripps.trip;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.example.businesstripps.User.User;
 
 import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Set;
 
+@Setter
+@Getter
 @Entity
 public class Trip {
 
@@ -15,8 +19,8 @@ public class Trip {
     @Column(name = "id", nullable = false, unique = true)
     private int id;
 
-    @Column(name = "budget", nullable = false)
-    private float budget;
+//    @Column(name = "budget", nullable = false)
+//    private float budget;
 
     @Column(name = "title", nullable = false)
     private String Title;
@@ -33,8 +37,12 @@ public class Trip {
     @Column(name = "endAt", nullable = false)
     private Timestamp endAt;
 
-    @ManyToMany(mappedBy = "trips")
-    private Set<User> users;
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "user_trip",
+//            joinColumns =  @JoinColumn(name = "trip_id"),
+//            inverseJoinColumns =@JoinColumn(name = "trip_id"))
+//    private Set<User> users;
 
 
     @Override
@@ -50,67 +58,4 @@ public class Trip {
         return Objects.hashCode(id);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public float getBudget() {
-        return budget;
-    }
-
-    public void setBudget(float budget) {
-        this.budget = budget;
-    }
-
-    public String getTitle() {
-        return Title;
-    }
-
-    public void setTitle(String title) {
-        Title = title;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public Timestamp getStartAt() {
-        return startAt;
-    }
-
-    public void setStartAt(Timestamp startAt) {
-        this.startAt = startAt;
-    }
-
-    public Timestamp getEndAt() {
-        return endAt;
-    }
-
-    public void setEndAt(Timestamp endAt) {
-        this.endAt = endAt;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
 }

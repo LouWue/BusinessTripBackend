@@ -18,10 +18,41 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Spring dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.projectlombok:lombok'
+
+    // Messaging dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // Security dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Runtime only dependencies
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // Test dependencies
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+
+    // Test runtime only dependencies
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly 'com.h2database:h2'
+
+    // Open API documentation
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+    // Dev dependencies
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // Annotation processor dependencies
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()
