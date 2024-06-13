@@ -1,5 +1,6 @@
 package org.example.businesstripps.User;
 
+import org.example.businesstripps.role.Role;
 import org.example.businesstripps.trip.Trip;
 
 import java.util.HashSet;
@@ -12,5 +13,5 @@ public class User {
     private String password;
     private String email;
     private Set<Trip> trips;
-    private Set<Role>
+    private Set<Role> roles;
     }
