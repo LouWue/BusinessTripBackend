@@ -19,8 +19,8 @@ public class Trip {
     @Column(name = "id", nullable = false, unique = true)
     private int id;
 
-//    @Column(name = "budget", nullable = false)
-//    private float budget;
+    @Column(name = "budget", nullable = false)
+   private float budget;
 
     @Column(name = "title", nullable = false)
     private String Title;
