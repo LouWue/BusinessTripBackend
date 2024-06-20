@@ -1,7 +1,9 @@
 package org.example.businesstripps.trip;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.businesstripps.User.User;
 
@@ -11,8 +13,12 @@ import java.util.Set;
 
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Trip {
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,18 +37,14 @@ public class Trip {
     @Column(name = "destination", nullable = false)
     private String destination;
 
-    @Column(name = "startAt", nullable = false)
+    @Column(name = "start_at", nullable = false)
     private Timestamp startAt;
 
-    @Column(name = "endAt", nullable = false)
+    @Column(name = "end_at", nullable = false)
     private Timestamp endAt;
 
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(
-//            name = "user_trip",
-//            joinColumns =  @JoinColumn(name = "trip_id"),
-//            inverseJoinColumns =@JoinColumn(name = "trip_id"))
-//    private Set<User> users;
+    @ManyToMany(mappedBy = "trips")
+    private Set<User> users;
 
 
     @Override
